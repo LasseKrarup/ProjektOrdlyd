@@ -9,8 +9,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `LasseKrarup Gatsby Starter`,
-    description: `Gatsby Starter with TailwindCSS and NetlifyCMS`,
+    title: `Projekt Ordlyd`,
+    description: `Projekt Ordlyd sætter ord på unges følelser under corona-pandemien og fortolker dem musikalsk`,
     author: `LasseKrarup`,
   },
   plugins: [
@@ -65,13 +65,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `projekt-ordlyd`,
+        short_name: `ordlyd`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#4C4F57`,
+        theme_color: `#4C4F57`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/ordlyd-single-rasterized.png`, // This path is relative to the root of the site.
       },
     },
 
