@@ -10,6 +10,12 @@ module.exports = {
     extend: {
       textColor: {
         'link': '#B9C8FF',
+      },
+      backgroundColor: {
+        "main": "#4C4F57"
+      },
+      borderColor: {
+        "main": "#4C4F57"
       }
     },
   },

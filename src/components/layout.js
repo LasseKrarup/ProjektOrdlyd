@@ -7,24 +7,14 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 
 const Layout = ({ children, bg, header }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
 
   return (
     <>
-      <div style={{backgroundColor: bg}} className="min-w-screen min-h-screen font-sans text-white absolute inset-0">
+      <div style={{backgroundColor: bg}} className="min-w-screen min-h-screen font-sans text-white relative inset-0">
         { header ? <Header></Header> : <></> }
         <main>{children}</main>
       </div>

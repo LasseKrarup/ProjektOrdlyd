@@ -3,22 +3,14 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/title"
+import Digt from "../components/digt"
 
 import OrdlydSingle from "../images/ordlyd-single-rasterized.png"
 
-const Digt = ({children, digter, musiker, className}) => (
-    <div className={"inline-flex flex-col my-4 " + className}>
-        <p className="text-2xl">{children}</p>
-        <div className="ml-4 text-gray-300 text-base">
-            <div>af {digter}</div>
-            <div>musik af {musiker}</div>
-        </div>
-    </div>
-)
 
 const Digtene = ({ data }) => (
   <Layout bg="#4C5756">
-    <SEO title="Hjem" />
+    <SEO title="digtene" />
 
     <header className="relative">
         <div className="relative">

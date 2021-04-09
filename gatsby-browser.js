@@ -9,3 +9,9 @@
 import "./src/css/style.css"
 
 import "@fontsource/ropa-sans"
+
+import React from 'react';
+import {AnimatePresence} from 'framer-motion';
+export const wrapPageElement = ({element}) => (
+  <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
+);
