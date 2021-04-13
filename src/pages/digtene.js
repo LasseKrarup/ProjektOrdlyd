@@ -16,18 +16,18 @@ import OrdlydCut from "../images/ordlyd-cut-xl.png"
 const Digtene = ({ data }) => (
   <Layout>
     <SEO title="digtene" />
-    <BackgroundPane bg="digtene" transition={transition}></BackgroundPane>
+    <BackgroundPane bg="bg-digtene" transition={transition}></BackgroundPane>
 
     <motion.div className="mt-24" variants={containerVariants} initial="hide" animate="show" exit="exit">
         <motion.header variants={textVariants} className="fixed top-0 pt-24 w-full">
 
-        <BackgroundPane bg="digtene" transition={transition}></BackgroundPane>
+        <BackgroundPane bg="bg-digtene" transition={transition}></BackgroundPane>
             <div className="">
                 <Title>Digtene</Title>
             </div>
         </motion.header>
 
-        <motion.div variants={digtParentVariants} initial="hide" animate="show" exit="exit" className="flex flex-col items-start sm:items-center mt-48 md:mt-72 xl:mt-64">
+        <motion.div variants={digtParentVariants} initial="hide" animate="show" exit="exit" className="flex flex-col items-start sm:items-center mt-48 md:mt-72 xl:mt-64 z-10 relative">
           <Digt variants={digtVariants} className="ml-20 sm:ml-0" digter="Ditte Boe Sørensen" musiker="Lasse Krarup">(ingen titel)</Digt>
           <Digt variants={digtVariants} className="ml-12 sm:-ml-24" digter="Mascha Mølkjær-Hansen" musiker="Jirasol Pereira">mÅnEdAnS</Digt>
           <Digt variants={digtVariants} className="self-end mr-4 sm:mr-24 lg:self-auto lg:ml-64" digter="Rakel Fomsgaard Kragh" musiker="Casper Brændstrup">Hovedpine</Digt>
