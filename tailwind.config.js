@@ -12,10 +12,14 @@ module.exports = {
         'link': '#B9C8FF',
       },
       backgroundColor: {
-        "main": "#4C4F57"
+        "main": "#4C4F57",
+        "about": "#57574C"
       },
       borderColor: {
         "main": "#4C4F57"
+      },
+      contrast: {
+        "900": "9"
       }
     },
   },

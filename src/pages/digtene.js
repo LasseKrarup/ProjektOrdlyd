@@ -12,7 +12,7 @@ const Digtene = ({ data }) => (
   <Layout bg="#4C5756">
     <SEO title="digtene" />
 
-    <header className="relative">
+    <header className="relative mt-12">
         <div className="relative">
             <Title>Digtene</Title>
         </div>
