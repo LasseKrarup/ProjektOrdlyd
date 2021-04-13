@@ -16,7 +16,7 @@ const Layout = ({ children, bg, header, digt }) => {
     <>
       <div style={{backgroundColor: bg}} className="w-screen min-h-screen overflow-auto overflow-x-hidden flex flex-row font-sans text-white relative">
         { header ? <Header digt={digt}></Header> : <></> }
-        <main className="w-screen h-full flex-grow">{children}</main>
+        <main className="w-screen flex-grow">{children}</main>
       </div>
     </>
   )

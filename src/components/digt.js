@@ -5,14 +5,16 @@ import slugify from "../script/slugify"
 
 import { motion } from "framer-motion";
 
-const Digt = ({children, digter, musiker, className, nolink, variants}) => (
+const fontSize = "text-2xl 2xl:text-4xl"
+
+const Digt = ({children, digter, musiker, className, nolink, variants, titleClassName, subtitleClassName}) => (
     <motion.div variants={variants} className={"inline-flex flex-col my-4 " + className}>
         { nolink ? 
-            <h1 className="text-2xl">{children}</h1>    
+            <h1 className={fontSize + " " + titleClassName}>{children}</h1>    
             :
-            <Link to={slugify(children)} className="text-2xl hover:text-gray-200 transition-colors">{children}</Link>
+            <Link to={slugify(children)} className={fontSize + " hover:text-gray-200 transition-colors " + titleClassName}>{children}</Link>
         }
-        <div className="ml-4 text-gray-300 text-base leading-none">
+        <div className={"ml-4 text-gray-300 text-base 2xl:text-xl leading-none " + subtitleClassName}>
             <div>af {digter}</div>
             <div>musik af {musiker}</div>
         </div>

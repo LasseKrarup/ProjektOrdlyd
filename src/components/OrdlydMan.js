@@ -15,7 +15,7 @@ const OrdlydMan = ({initial, animate, exit, transition, className}) => {
                     animate={animate} 
                     exit={exit}
                     transition={transition}
-                    className={"w-40 relative bottom-0 z-10 " + className } 
+                    className={"w-40 2xl:w-52 relative bottom-0 z-10 " + className } 
                     src={OrdlydSingle} 
                     alt="Projekt Ordlyd logo"
                 ></motion.img>

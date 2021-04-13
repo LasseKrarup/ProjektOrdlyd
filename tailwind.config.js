@@ -22,8 +22,12 @@ module.exports = {
       },
       contrast: {
         "900": "9"
+      },
+      height: {
+        "giant": "32rem",
+        "1px": "1px"
       }
-    },
+    }
   },
   variants: {
     extend: {},

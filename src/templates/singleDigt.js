@@ -26,12 +26,17 @@ const SingleDigt = ({data}) => {
 
             <BackgroundPane bg="single-digt" transition={fastTransition}></BackgroundPane>
 
-            <motion.div className="mt-24" variants={singleDigtParentVariants} initial="hide" animate="show" exit="exit">            
+            <motion.div 
+            className="pt-24 flex flex-col" 
+            variants={singleDigtParentVariants} 
+            initial="hide" 
+            animate="show" 
+            exit="exit">            
                 <BackgroundPane bg="single-digt" transition={fastTransition}></BackgroundPane>
-                <Digt variants={singleDigtVariants} className="ml-20" digter={digter} musiker={musiker} nolink>{titel}</Digt>
+                <Digt variants={singleDigtVariants} className="ml-20 md:ml-36 2xl:ml-52" titleClassName="md:text-4xl 2xl:text-5xl" subtitleClassName="md:text-xl 2xl:text-2xl 2xl:mt-2" digter={digter} musiker={musiker} nolink>{titel}</Digt>
 
-                <motion.div variants={singleDigtVariants} className="flex my-12 mx-4 items-center justify-center">
-                    <div className="bg-red-400 w-64 h-64"></div>
+                <motion.div variants={singleDigtVariants} className="flex mx-4 items-center justify-center flex-grow md:pt-24 xl:pt-12">
+                    <div className="bg-red-400 w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96"></div>
                 </motion.div>
             </motion.div>
 
