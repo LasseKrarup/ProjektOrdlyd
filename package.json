@@ -2,7 +2,7 @@
   "name": "projekt-ordlyd",
   "private": true,
   "description": "Projekt Ordlyd is a danish culture project combining words of young poets with music from the Royal Academy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Lasse Krarup <me@lassekrarup.com>",
   "dependencies": {
     "@fontsource/ropa-sans": "^4.2.2",

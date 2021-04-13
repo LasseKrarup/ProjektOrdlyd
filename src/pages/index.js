@@ -78,7 +78,7 @@ const IndexPage = () => {
               <motion.div variants={maskVariants} className="lines border-b-4 left-0 bottom-0"></motion.div>
               <motion.div variants={maskVariants} className="lines border-l-4 left-0 top-0"></motion.div>
             </motion.div>
-            <motion.h3 initial={{opacity: 0, y: 40}} animate={{opacity: 1, y: 0}} transition={{...transition, delay: 3.2}} className="lowercase text-2xl md:text-3xl 2xl:text-5xl">Unges velværde i en pandemi</motion.h3>
+            <motion.h3 initial={{opacity: 0, y: 40}} animate={{opacity: 1, y: 0}} transition={{...transition, delay: 3.2}} className="lowercase text-2xl md:text-3xl 2xl:text-5xl">Unges velvære i en pandemi</motion.h3>
           </motion.div>
           <motion.section initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0, transition: {delay:0}}} transition={{...transition, delay: 3.8}} className="flex flex-row w-10/12 items-center justify-center mx-auto my-12">
             <div className="justify-between flex flex-row w-full sm:text-lg md:text-xl lg:text-2xl 2xl:text-3xl sm:px-16 lg:px-12 xl:px-24 2xl:px-40 lg:-mt-48">
@@ -86,7 +86,7 @@ const IndexPage = () => {
               <Link to="/digtene" className="block lowercase text-link p-4 2xl:pb-16 lg:transform lg:-translate-x-20">Digtene</Link>
             </div>
           </motion.section>
-          <div className="w-screen overflow-hidden absolute bottom-0">
+          <div className="w-screen overflow-hidden fixed bottom-0">
             <div style={{width: "150%"}} className="relative -left-1/4">
               <motion.img initial={{opacity: 0}} animate={{opacity: 1,}} exit={{opacity: 0, transition: {delay: 0.5}}} className="w-full relative sm:h-96 2xl:h-giant sm:w-auto sm:mx-auto" src={OrdlydBg} alt="Projekt Ordlyd logo" ></motion.img>
               <motion.img transition={{...transition, duration: 1, delay: 0.5}} className="w-40 2xl:w-52 absolute bottom-0 left-1/2 transform -translate-x-1/2" src={OrdlydSingle} alt="Projekt Ordlyd logo" ></motion.img>

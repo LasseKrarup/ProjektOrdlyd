@@ -17,7 +17,7 @@ const Header = ({ digt }) => (
         }
       }} 
       transition={{delay: digt ? 1.5 : 2.5}} 
-      className="fixed top-0 left-0 flex flex-row items-center z-20"
+      className="fixed top-0 left-0 flex flex-row items-center z-50"
     >
       <div className="w-10 h-1px 2xl:h-0.5 my-8 md:my-12 mr-4 bg-white"></div>
       { digt ? 

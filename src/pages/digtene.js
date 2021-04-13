@@ -21,8 +21,8 @@ const Digtene = ({ data }) => (
     <motion.div className="mt-24" variants={containerVariants} initial="hide" animate="show" exit="exit">
         <motion.header variants={textVariants} className="fixed top-0 pt-24 w-full">
 
-        <BackgroundPane bg="bg-digtene" transition={transition}></BackgroundPane>
-            <div className="">
+        <BackgroundPane bg="bg-digtene" className="z-20" transition={transition}></BackgroundPane>
+            <div className="relative z-30">
                 <Title>Digtene</Title>
             </div>
         </motion.header>
