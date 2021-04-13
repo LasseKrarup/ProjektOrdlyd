@@ -8,7 +8,6 @@ import Digt from "../components/digt"
 import { motion } from "framer-motion";
 import {containerVariants, textVariants, transition, digtParentVariants, digtVariants} from "../components/variants"
 
-import OrdlydSingle from "../images/ordlyd-single-rasterized.png"
 import BackgroundPane from "../components/BackgroundPane"
 import OrdlydMan from "../components/OrdlydMan"
 

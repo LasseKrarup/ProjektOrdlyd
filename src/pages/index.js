@@ -40,6 +40,27 @@ const IndexPage = () => {
     }
   }
 
+  const titleParentVariants = {
+    animate: {
+      transition: {
+        delayChildren: 3,
+        staggerChildren: 0.1
+      }
+    }
+  }
+  const titleVariants = {
+    initial: {
+      y: 40,
+      opacity: 0
+    },
+    animate: {
+      y: 0, 
+      opacity: 1,
+      transition: {
+        duration: 0.3
+      }
+    },
+  }
 
   return(
         <Layout bg="#4C4F57" header={false}>
@@ -47,7 +68,10 @@ const IndexPage = () => {
           <motion.div initial="initial" exit={{opacity: 0}} className="flex items-center justify-center flex-col overflow-hidden">
             <motion.div variants={variantsContainer} animate="animate" className="box-content relative mx-auto mt-12 mb-8 overflow-hidden">
               <div className="border-white border-4 p-4 overflow-hidden">
-                <motion.h1 initial={{y: 40, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{type: "spring", stiffness: 240, damping: 12, delay: 3}} className="text-6xl uppercase text-justify inline-flex flex-col"><div>Projekt</div><div>Ordlyd</div></motion.h1>
+                <motion.h1 variants={titleParentVariants} initial="initial" animate="animate" className="text-6xl uppercase text-justify inline-flex flex-col">
+                  <div className="overflow-hidden"><motion.span className="block" variants={titleVariants}>Projekt</motion.span></div>
+                  <div className="overflow-hidden"><motion.span className="block" variants={titleVariants}>Ordlyd</motion.span></div>
+                </motion.h1>
               </div>
               <motion.div variants={maskVariants} className="lines border-t-4 right-0 top-0"></motion.div>
               <motion.div variants={maskVariants} className="lines border-r-4 right-0 bottom-0"></motion.div>

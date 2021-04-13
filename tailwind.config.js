@@ -14,7 +14,8 @@ module.exports = {
       backgroundColor: {
         "main": "#4C4F57",
         "about": "#57574C",
-        "digtene": "#4C5756"
+        "digtene": "#4C5756",
+        "single-digt": "#574C4C"
       },
       borderColor: {
         "main": "#4C4F57"

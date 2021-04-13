@@ -17,19 +17,20 @@
 
 // --- Slug generation for Markdown Remark ----
 const path = require(`path`)
-// const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// exports.onCreateNode = ({ node, getNode, actions }) => {
-//   const { createNodeField } = actions
-//   if (node.internal.type === `MarkdownRemark`) {
-//     const slug = createFilePath({ node, getNode, basePath: `pages` })
-//     createNodeField({
-//       node,
-//       name: `slug`,
-//       value: slug,
-//     })
-//   }
-// }
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `DigteneJson`) {
+    const slug = createFilePath({ node, getNode })
+    console.log("File path: " + slug)
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
 
 function slugify(string) {
     const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
@@ -51,25 +52,28 @@ exports.createPages = async ({ graphql, actions }) => {
   // This is where the files for which to generate slugs are determined
   const result = await graphql(`
     {
-        allDigteJson {
+        allDigteneJson {
         edges {
             node {
-                titel
+                fields {
+                  slug
+                }
             }
         }
         }
     }  
   `)
 
-  result.data.allDigteJson.edges.forEach(({ node }) => {
+  result.data.allDigteneJson.edges.forEach(({ node }) => {
+    const slug = node.fields.slug
     createPage({
-      path: path.join("digtene", slugify(node.titel)),
+      path: slug,
       // Choose template to use for programatically created pages
       component: path.resolve(`./src/templates/singleDigt.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
-        slug: node.titel,
+        slug: slug,
       },
     })
   })
