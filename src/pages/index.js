@@ -8,59 +8,66 @@ import OrdlydImg from "../images/ordlyd-raster-sm.png"
 
 import { motion } from "framer-motion"
 
-const transition = {
-    duration: 1,
+const IndexPage = () => {
+
+  const transition = {
+    duration: .6,
     ease: [.59,-0.06,.83,1.06]
   }
 
-const container = {
-  animate: {
-    transition: {
-      staggerChildren: 1,
+  const variantsContainer = {
+    animate: {
+      transition: {
+        delayChildren: 1,
+        staggerChildren: 0.5
+      }
     }
   }
-}
+
+  const maskVariants = {
+    initial: {
+      height: "100%",
+      width: "100%"
+    },
+    animate: {
+      height: 0,
+      width: 0,
+      transition: {
+        ...transition,
+        duration: 0.5
+      }
+    }
+  }
 
 
-// Change this to include different directions as variants, then define them in the children (lines) as eg. animate="leftToRight"
-const lineVariant = {
-  initial: {width: "100%"}, 
-  animate: {width: 0}
-}
-
-const IndexPage = () => (
+  return(
         <Layout bg="#4C4F57" header={false}>
           <SEO title="Hjem" />
-          <div className="flex items-center justify-center flex-col">
-            <motion.div variants={container} animate="animate" className="relative mx-auto mt-12 mb-8">
-              <div className="border-white border-4 p-4">
-                <h1 className="text-6xl uppercase text-justify inline-flex flex-col"><div>Projekt</div><div>Ordlyd</div></h1>
+          <div className="flex items-center justify-center flex-col overflow-hidden">
+            <motion.div variants={variantsContainer} animate="animate" className="box-content relative mx-auto mt-12 mb-8 overflow-hidden">
+              <div className="border-white border-4 p-4 overflow-hidden">
+                <motion.h1 initial={{y: 40, opacity: 0}} animate={{y: 0, opacity: 1}} transition={{type: "spring", stiffness: 240, damping: 12, delay: 3}} className="text-6xl uppercase text-justify inline-flex flex-col"><div>Projekt</div><div>Ordlyd</div></motion.h1>
               </div>
-              <motion.div key="1" variants={lineVariant} transition={transition} className="border-t-4 border-pink-500 absolute w-full top-0"></motion.div>
-              <motion.div key="2" variants={lineVariant} transition={transition} className="border-pink-500 border-b-4 absolute inset-0"></motion.div>
-              <div className="border-r-4 border-pink-500 absolute inset-0"></div>
-              <div className="border-l-4 border-pink-500 absolute inset-0"></div>
+              <motion.div variants={maskVariants} className="lines border-t-4 right-0 top-0"></motion.div>
+              <motion.div variants={maskVariants} className="lines border-r-4 right-0 bottom-0"></motion.div>
+              <motion.div variants={maskVariants} className="lines border-b-4 left-0 bottom-0"></motion.div>
+              <motion.div variants={maskVariants} className="lines border-l-4 left-0 top-0"></motion.div>
             </motion.div>
-            <h3 className="lowercase text-2xl">Unges velværde i en pandemi</h3>
+            <motion.h3 initial={{opacity: 0, y: 40}} animate={{opacity: 1, y: 0}} transition={{...transition, delay: 3.2}} className="lowercase text-2xl">Unges velværde i en pandemi</motion.h3>
           </div>
-          <section className="flex flex-row w-10/12 items-center justify-center mx-auto my-12">
+          <motion.section initial={{opacity: 0}} animate={{opacity: 1}} transition={{...transition, delay: 3.8}} className="flex flex-row w-10/12 items-center justify-center mx-auto my-12">
             <div className="justify-between flex flex-row w-full">
               <Link to="/about" className="lowercase text-link" exit={{state: {opacity: 0}, delay: 0.2, ease: "easeInOut", duration: 0.6}}>Om projekt ordlyd</Link>
               <Link to="/digtene" className="lowercase text-link">Digtene</Link>
             </div>
-          </section>
+          </motion.section>
           <div className="w-screen overflow-hidden absolute bottom-0">
-            <div style={{width: "150%"}} className="relative inset-0 -left-1/4">
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1,}} transition={{...transition, duration: 1, delay: 0.5}} style={{width: "150%"}} className="relative inset-0 -left-1/4">
               <img src={OrdlydImg} alt="Projekt Ordlyd logo" ></img>
-            </div>
-
-            <motion.div className="w-full h-full absolute inset-0 bg-main"
-              transition={{...transition, delay: 0.5}}
-              initial={{top: 0}}
-              animate={{top: "100%"}}
-            ></motion.div>
+            </motion.div>
           </div>
         </Layout>
-)
+  );
+}
 
 export default IndexPage

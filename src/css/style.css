@@ -5,3 +5,7 @@
 html {
   background-color: #4c4f57;
 }
+
+.lines {
+  @apply w-full h-full border-main absolute;
+}
