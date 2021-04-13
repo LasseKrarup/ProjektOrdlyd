@@ -3,8 +3,10 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import slugify from "../script/slugify"
 
-const Digt = ({children, digter, musiker, className, nolink}) => (
-    <div className={"inline-flex flex-col my-4 " + className}>
+import { motion } from "framer-motion";
+
+const Digt = ({children, digter, musiker, className, nolink, variants}) => (
+    <motion.div variants={variants} className={"inline-flex flex-col my-4 " + className}>
         { nolink ? 
             <h1 className="text-2xl">{children}</h1>    
             :
@@ -14,7 +16,7 @@ const Digt = ({children, digter, musiker, className, nolink}) => (
             <div>af {digter}</div>
             <div>musik af {musiker}</div>
         </div>
-    </div>
+    </motion.div>
 )
 
 Digt.propTypes = {

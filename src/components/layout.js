@@ -14,9 +14,9 @@ const Layout = ({ children, bg, header }) => {
 
   return (
     <>
-      <div style={{backgroundColor: bg}} className="w-screen min-h-screen overflow-auto font-sans text-white relative">
+      <div style={{backgroundColor: bg}} className="w-screen min-h-screen overflow-auto overflow-x-hidden flex flex-row font-sans text-white relative">
         { header ? <Header></Header> : <></> }
-        <main className="w-screen min-h-screen">{children}</main>
+        <main className="w-screen h-full flex-grow">{children}</main>
       </div>
     </>
   )

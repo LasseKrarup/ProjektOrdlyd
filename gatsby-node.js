@@ -16,7 +16,7 @@
 **/
 
 // --- Slug generation for Markdown Remark ----
-// const path = require(`path`)
+const path = require(`path`)
 // const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -31,36 +31,49 @@
 //   }
 // }
 
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions
-//   // This is where the files for which to generate slugs are determined
-//   const result = await graphql(`
-//     query {
-//       allMarkdownRemark (filter: {internal: {}, fileAbsolutePath: {glob: "/**/pages/*"}}) {
-//         edges {
-//           node {
-//             fields {
-//               slug
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
+function slugify(string) {
+    const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
+    const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------'
+    const p = new RegExp(a.split('').join('|'), 'g')
+  
+    return string.toString().toLowerCase()
+      .replace(/\s+/g, '-') // Replace spaces with -
+      .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+      .replace(/&/g, '-and-') // Replace & with 'and'
+      .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+      .replace(/\-\-+/g, '-') // Replace multiple - with single -
+      .replace(/^-+/, '') // Trim - from start of text
+      .replace(/-+$/, '') // Trim - from end of text
+}
 
-//   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-//     createPage({
-//       path: node.fields.slug,
-//       // Choose template to use for programatically created pages
-//       component: path.resolve(`./src/templates/other-pages.js`),
-//       context: {
-//         // Data passed to context is available
-//         // in page queries as GraphQL variables.
-//         slug: node.fields.slug,
-//       },
-//     })
-//   })
-// }
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  // This is where the files for which to generate slugs are determined
+  const result = await graphql(`
+    {
+        allDigteJson {
+        edges {
+            node {
+                titel
+            }
+        }
+        }
+    }  
+  `)
+
+  result.data.allDigteJson.edges.forEach(({ node }) => {
+    createPage({
+      path: path.join("digtene", slugify(node.titel)),
+      // Choose template to use for programatically created pages
+      component: path.resolve(`./src/templates/singleDigt.js`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.titel,
+      },
+    })
+  })
+}
 
 
 
