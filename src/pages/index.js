@@ -86,7 +86,7 @@ const IndexPage = () => {
               <Link to="/digtene" className="block lowercase text-link p-4 2xl:pb-16 lg:transform lg:-translate-x-20">Digtene</Link>
             </div>
           </motion.section>
-          <div className="w-screen overflow-hidden fixed bottom-0">
+          <div className="w-screen overflow-hidden fixed bottom-0 pointer-events-none">
             <div style={{width: "150%"}} className="relative -left-1/4">
               <motion.img initial={{opacity: 0}} animate={{opacity: 1,}} exit={{opacity: 0, transition: {delay: 0.5}}} className="w-full relative sm:h-96 2xl:h-giant sm:w-auto sm:mx-auto" src={OrdlydBg} alt="Projekt Ordlyd logo" ></motion.img>
               <motion.img transition={{...transition, duration: 1, delay: 0.5}} className="w-40 2xl:w-52 absolute bottom-0 left-1/2 transform -translate-x-1/2" src={OrdlydSingle} alt="Projekt Ordlyd logo" ></motion.img>
