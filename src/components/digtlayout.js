@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 import Header from "./header"
 
 import OrdlydSingle from "../images/ordlyd-single-rasterized.png"
+import Footer from "./Footer"
  
  const DigtLayout = ({ children, bg, headerList }) => {
 
@@ -17,6 +18,7 @@ import OrdlydSingle from "../images/ordlyd-single-rasterized.png"
         <div className="w-screen overflow-hidden fixed bottom-0 flex justify-center">
             <img className="w-1/3" src={OrdlydSingle} alt="Projekt Ordlyd logo" ></img>
         </div>
+        <Footer></Footer>
        </div>
    )
  }

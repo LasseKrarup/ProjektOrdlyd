@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import Header from "./header"
+import Footer from "./Footer"
 
 const Layout = ({ children, bg, header, digt, headerList }) => {
 
@@ -17,6 +18,7 @@ const Layout = ({ children, bg, header, digt, headerList }) => {
       <div style={{backgroundColor: bg}} className="w-screen min-h-screen overflow-auto overflow-x-hidden flex flex-row font-sans text-white relative">
         { header ? <Header digt={digt} headerList={headerList}></Header> : null }
         <main className="w-screen flex-grow">{children}</main>
+        <Footer></Footer>
       </div>
     </>
   )
