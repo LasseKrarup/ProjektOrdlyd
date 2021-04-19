@@ -26,6 +26,9 @@ module.exports = {
       height: {
         "giant": "32rem",
         "1px": "1px"
+      },
+      screens: {
+        "tall": {"raw": "(min-height: 620px)"}
       }
     }
   },
