@@ -10,12 +10,12 @@ import PropTypes from "prop-types"
 
 import Header from "./header"
 
-const Layout = ({ children, bg, header, digt }) => {
+const Layout = ({ children, bg, header, digt, headerList }) => {
 
   return (
     <>
       <div style={{backgroundColor: bg}} className="w-screen min-h-screen overflow-auto overflow-x-hidden flex flex-row font-sans text-white relative">
-        { header ? <Header digt={digt}></Header> : <></> }
+        { header ? <Header digt={digt} headerList={headerList}></Header> : null }
         <main className="w-screen flex-grow">{children}</main>
       </div>
     </>

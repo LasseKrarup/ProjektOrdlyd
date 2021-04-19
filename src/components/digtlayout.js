@@ -6,12 +6,12 @@ import Header from "./header"
 
 import OrdlydSingle from "../images/ordlyd-single-rasterized.png"
  
- const DigtLayout = ({ children, bg }) => {
+ const DigtLayout = ({ children, bg, headerList }) => {
 
  
    return (
        <div style={{backgroundColor: bg}} className="min-w-screen min-h-screen font-sans text-white absolute inset-0">
-         <Header digt={true}></Header>
+         <Header digt={true} headerList={headerList}></Header>
          <main>{children}</main>
 
         <div className="w-screen overflow-hidden fixed bottom-0 flex justify-center">

@@ -12,9 +12,13 @@ import BackgroundPane from "../components/BackgroundPane"
 import OrdlydMan from "../components/OrdlydMan"
 import OrdlydCut from "../images/ordlyd-cut-xl.png"
 
+const headerList = [
+  {title: "hjem", path: "/"},
+  {title: "om", path: "/about"},
+]
 
 const Digtene = ({ data }) => (
-  <Layout>
+  <Layout headerList={headerList}>
     <SEO title="digtene" />
     <BackgroundPane bg="bg-digtene" transition={transition}></BackgroundPane>
 

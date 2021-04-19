@@ -17,6 +17,7 @@ const Digt = ({children, digter, musiker, className, nolink, variants, titleClas
         <div className={"ml-4 text-gray-300 text-base 2xl:text-xl leading-none " + subtitleClassName}>
             <div>af {digter}</div>
             <div>musik af {musiker}</div>
+            {nolink && <div>animation af Lasse Herold Krarup</div>}
         </div>
     </motion.div>
 )
