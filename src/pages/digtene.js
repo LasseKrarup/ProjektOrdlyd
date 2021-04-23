@@ -23,21 +23,22 @@ const Digtene = ({ data }) => (
     <BackgroundPane bg="bg-digtene" transition={transition}></BackgroundPane>
 
     <motion.div className="mt-24" variants={containerVariants} initial="hide" animate="show" exit="exit">
-        <motion.header variants={textVariants} className="fixed top-0 pt-24 w-full">
+        <motion.div variants={digtParentVariants} initial="hide" animate="show" exit="exit" className="flex flex-col items-start sm:items-center mt-48 md:mt-72 pb-8 xl:mt-64 z-10 relative">
+          <Digt variants={digtVariants} className="ml-20 sm:ml-0" digter="Ditte Boe Sørensen" musiker="Lasse Krarup">(ingen titel)</Digt>
+          <Digt variants={digtVariants} className="ml-12 sm:-ml-24" digter="Mascha Mølkjær-Hansen" musiker="Jirasol Pereira">mÅnEdAnS</Digt>
+          <Digt variants={digtVariants} className="self-end mr-8 sm:mr-24 lg:self-auto lg:ml-64" digter="Rakel Fomsgaard Kragh" musiker="Casper Brændstrup">Hovedpine</Digt>
+          <Digt variants={digtVariants} className="ml-24 sm:-ml-40" digter="Sigrid Marie Eltved Krogsgård" musiker="Helene Aaboe">Mit værelse</Digt>
+          <Digt variants={digtVariants} className="ml-8 sm:ml-20" digter="Theodor Stoffer" musiker="Lasse Hansen">Jeg er begyndt at strikke</Digt>
+        </motion.div>
 
-        <BackgroundPane bg="bg-digtene" className="z-20" transition={transition}></BackgroundPane>
+        <motion.header variants={textVariants} className="fixed top-0 pt-24 z-20 w-full">
+            <BackgroundPane bg="bg-digtene" transition={transition}></BackgroundPane>
+
             <div className="relative z-30">
                 <Title>Digtene</Title>
             </div>
         </motion.header>
 
-        <motion.div variants={digtParentVariants} initial="hide" animate="show" exit="exit" className="flex flex-col items-start sm:items-center mt-48 md:mt-72 xl:mt-64 z-10 relative">
-          <Digt variants={digtVariants} className="ml-20 sm:ml-0" digter="Ditte Boe Sørensen" musiker="Lasse Krarup">(ingen titel)</Digt>
-          <Digt variants={digtVariants} className="ml-12 sm:-ml-24" digter="Mascha Mølkjær-Hansen" musiker="Jirasol Pereira">mÅnEdAnS</Digt>
-          <Digt variants={digtVariants} className="self-end mr-4 sm:mr-24 lg:self-auto lg:ml-64" digter="Rakel Fomsgaard Kragh" musiker="Casper Brændstrup">Hovedpine</Digt>
-          <Digt variants={digtVariants} className="ml-24 sm:-ml-40" digter="Sigrid Marie Eltved Krogsgård" musiker="Helene Aaboe">Mit værelse</Digt>
-          <Digt variants={digtVariants} className="ml-8 sm:ml-20" digter="Theodor Stoffer" musiker="Lasse Hansen">Jeg er begyndt at strikke</Digt>
-        </motion.div>
       </motion.div>
 
       <OrdlydMan 

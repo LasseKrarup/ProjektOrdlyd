@@ -6,7 +6,7 @@ import OrdlydSingle from "../images/ordlyd-single-rasterized.png"
 
 const OrdlydMan = ({initial, animate, exit, transition, className}) => {
     return (
-    <div className="overflow-hidden fixed bottom-0 left-0 w-screen pointer-events-none z-50">
+    <div className="h-48 tall:h-auto overflow-hidden fixed bottom-0 left-0 w-screen pointer-events-none z-50">
             <motion.div className="relative w-full" 
                 
             >

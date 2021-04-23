@@ -12,6 +12,9 @@ import {singleDigtVariants, singleDigtParentVariants} from "../components/varian
 import BackgroundPane from '../components/BackgroundPane';
 import OrdlydMan from '../components/OrdlydMan';
 
+import moment from "moment"
+moment().format();
+
 
 const fastTransition = {
     duration: 0.6,
@@ -24,9 +27,34 @@ const headerList = [
   {title: "om", path: "/about"},
 ]
 
+const PreReleaseContent = ({props}) => {
+    return (
+        <>
+            <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 absolute p-8 text-xl lg:text-3xl">
+                <h3>RELEASE LØRDAG 24/4 16:00</h3>
+            </div>
+            { props.thumbnail ?
+                <div className="w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96 overflow-hidden flex items-center justify-center">
+                    <img className="object-cover min-h-full" src={path.join("/", props.thumbnail)} alt={`${props.titel} af ${props.digter}. Musik af ${props.musiker}. Animation af Lasse Herold Krarup`}></img>
+                </div>
+                :
+                <div className="bg-red-400 w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96"></div>
+            }
+        </>
+    );
+}
+
+const PostReleaseContent = ({youtubeID}) => {
+    return (
+        <>
+            <iframe width="560" height="315" src={"https://www.youtube.com/embed/" + youtubeID} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; modest-branding" allowFullScreen></iframe>
+        </>
+    );
+}
+
 const SingleDigt = ({data}) => {
 
-    const { digteneJson: {digter, musiker, titel, thumbnail} } = data
+    const { digteneJson: {digter, musiker, titel, thumbnail, youtubeID} } = data
 
     return(
         <Layout digt headerList={headerList}>
@@ -44,15 +72,11 @@ const SingleDigt = ({data}) => {
                 <Digt variants={singleDigtVariants} className="ml-20 md:ml-36 2xl:ml-52 relative" titleClassName="md:text-4xl 2xl:text-5xl" subtitleClassName="md:text-xl 2xl:text-2xl 2xl:mt-2" digter={digter} musiker={musiker} nolink>{titel}</Digt>
 
                 <motion.div variants={singleDigtVariants} className="relative flex mx-4 items-center justify-center flex-grow md:pt-24 xl:pt-12">
-                    <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 absolute p-8 text-xl lg:text-3xl">
-                        <h3>RELEASE LØRDAG 24/4 16:00</h3>
-                    </div>
-                    { thumbnail ?
-                        <div className="w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96 overflow-hidden flex items-center justify-center">
-                            <img className="object-cover min-h-full" src={path.join("/", thumbnail)} alt={`${titel} af ${digter}. Musik af ${musiker}. Animation af Lasse Herold Krarup`}></img>
-                        </div>
-                        :
-                        <div className="bg-red-400 w-64 h-64 md:w-80 md:h-80 xl:w-96 xl:h-96"></div>
+                    {
+                        moment().isBefore("2021-04-24 16+02") ?
+                            <PreReleaseContent props={{digter, musiker, titel, thumbnail}}></PreReleaseContent>
+                            :
+                            <PostReleaseContent youtubeID={youtubeID}></PostReleaseContent>
                     }
                 </motion.div>
             </motion.div>
@@ -71,6 +95,7 @@ export const query = graphql`
             digter
             musiker
             thumbnail
+            youtubeID
         }
     }
 `
