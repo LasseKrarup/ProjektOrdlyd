@@ -58,7 +58,7 @@ const SingleDigt = ({data}) => {
 
     return(
         <Layout digt headerList={headerList}>
-            <SEO title="(ingen titel)"></SEO>
+            <SEO title={titel}></SEO>
 
             <BackgroundPane bg="bg-single-digt" transition={fastTransition}></BackgroundPane>
 
